@@ -12,7 +12,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
     && mkdir /run/nginx \
     # mysql ext
     && docker-php-source extract \
-    && docker-php-ext-install pdo-mysql mysqli \
+    && docker-php-ext-install pdo_mysql mysqli \
     && docker-php-source delete \
     # init mysql
     && mysql_install_db --user=mysql --datadir=/var/lib/mysql \

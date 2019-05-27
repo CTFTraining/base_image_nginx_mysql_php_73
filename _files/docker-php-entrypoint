@@ -1,0 +1,20 @@
+#!/bin/sh
+
+mysqld_safe &
+
+sleep 5s
+
+if [[ -f /flag.sh ]]; then
+	source /flag.sh
+fi
+
+if [[ -f /var/www/html/db.sql ]]; then
+    mysql -e "source /var/www/html/db.sql" -uroot -proot
+    rm -f /var/www/html/db.sql
+fi
+
+php-fpm &
+
+nginx &
+
+tail -F /dev/null

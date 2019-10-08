@@ -25,7 +25,9 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
     && mv /tmp/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint \
     && chmod +x /usr/local/bin/docker-php-entrypoint \
     && mv /tmp/nginx.conf /etc/nginx/nginx.conf \
-    && chown -R www-data:www-data /var/www/html \
+    && chown -R www-data:www-data /var/www/html \    
+    && mv /tmp/docker-php-ext-mysqli.ini /usr/local/etc/php/conf.d \
+    && mv /tmp/docker-php-ext-pdo_mysql.ini /usr/local/etc/php/conf.d \
     # clear
     && rm -rf /var/www/html/db.sql \
     && rm -rf /tmp/*

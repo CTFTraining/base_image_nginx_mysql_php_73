@@ -2,7 +2,15 @@
 
 mysqld_safe &
 
-sleep 5s
+mysql_ready() {
+	mysqladmin ping --host=127.0.0.1 --user=root --password=root > /dev/null 2>&1
+}
+
+while !(mysql_ready)
+do
+	echo "waiting for mysql ..."
+	sleep 3
+done
 
 if [[ -f /flag.sh ]]; then
 	source /flag.sh

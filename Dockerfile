@@ -18,8 +18,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
     && mysql_install_db --user=mysql --datadir=/var/lib/mysql \
     && sh -c 'mysqld_safe &' \
     && sleep 5s \
-    && mysqladmin -uroot password 'root' \
-    && mysql -e "source /var/www/html/db.sql;" -uroot -proot \
+    && mysqladmin -uroot password 'TDGDA0z16xO8lwmX' \
+    && mysql -e "source /var/www/html/db.sql;" -uroot -pTDGDA0z16xO8lwmX \
     # configure file
     && mv /tmp/flag.sh /flag.sh \
     && mv /tmp/docker-php-entrypoint /usr/local/bin/docker-php-entrypoint \
